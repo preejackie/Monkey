@@ -14,9 +14,9 @@ clang++ -S -emit-llvm sourcecode.cpp -o aot_noinst_1.ll
 
 These {aot_inst_1.ll , aot_noinst_1.ll} files are parsed by the JIT, and compiled native code is dumped to the disk by object transform layer.
 
-With initial testing, it seems like JIT drops the profile intrinsics completely. That is, there is no calls to support functions in compiler-rt library in generated native code.
+With initial testing, it seems like **JIT drops the profile intrinsics completely. That is, there is no calls to support functions in compiler-rt library in generated native code.**
 
-And also, JIT generates different object code for module that is instrumented (-fprofile-generate). 
+And also, JIT generates **different object code for module that is instrumented with (-fprofile-generate).** 
 You can find this difference, in jitmaindiff.png [diff image](https://github.com/preejackie/Monkey/blob/master/jitmaindiff.png). 
 
 In AOT compiler - object code generated for instrumented IR is 5019 lines long. You can find it [here](https://github.com/preejackie/Monkey/blob/master/aot_inst_dis)
